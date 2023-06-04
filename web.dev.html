@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;
+400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>web.dev</title>
+    <style>
+      *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+title{
+    color: var(--main-color);
+}
+:root{
+    --bg-color:#2a2a2a;
+    --second-bg-color:#202020;
+    --text-color:#fff;
+    --second-color:#ccc;
+    --main-color:#ff4d05;
+    --big-font:5rem;
+    --h2-font:3rem;
+    --p-font:1.1rem;
+
+}
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 22px 15%;
+    border: 1px solid transparent;
+    transition: all .45s ease;
+}
+.logo{
+    color: var(--text-color);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+span{
+    color: var(--main-color);
+}
+.navlists{
+    display: flex;
+}
+.navlists a{
+    color: var(--second-color);
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 25px;
+    transition:all .45s ease;
+}
+.navlists a:hover{
+    color: var(--main-color);
+}
+.navlists a.active{
+    color: var(--main-color);
+}
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 25px;
+    display: none;
+}
+section{
+    padding: 160px 15% 120px;
+}
+.home{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex;
+}
+.slide{
+    margin-bottom: 20px;
+}
+.one{
+    display: inline-block;
+    margin-right: 15px;
+    height: 32px;
+    padding: 0 15px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: var(--main-color);
+    color: var(--text-color);
+}
+.two{
+    display: inline-block;
+    color: var(--second-color);
+    font-size: 20px;
+    font-weight: 500;
+}
+.home-text h1{
+      font-size: var(--big-font);
+      font-weight: 700;
+      color: var(--text-color);
+      line-height: 1.1;
+      margin: 0 0 8px;
+}
+.home-text h3{
+    color: var(--text-color);
+    margin: 0 0 35px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.home-img img{
+    max-width: 1230px;
+    min-height: auto;
+}
+
+.home-text p{
+    color: var(--second-color);
+    font-size: var(--p-font);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+.button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--main-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all .45s ease;
+    margin-right: 10px;
+}
+.btn:hover{
+    transform: scale(0.9);
+}
+.btn2{
+   
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--main-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all .45s ease; 
+    display: flex;
+}
+.btn2:hover{
+    transform: scale(0.9);
+}
+header.sticky{
+    background: var(--bg-color);
+    border-bottom: 1px solid #ffffff1a;
+    padding: 12px 15%;
+}
+.about{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.5rem;
+}
+.about-img img{
+    max-width: 530px;
+    height: auto;
+    width: 100%;
+    border-radius: 15px;
+}
+.about-text h2{
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+.about-text h4{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 15px 0 30px;
+}
+.about-text p{
+    color: var(--second-color);
+    font-size: var(--p-font);
+    line-height: 1.8;
+    margin-bottom: 4rem;
+
+}
+.services{
+    background: var(--second-bg-color);
+}
+.main-text{
+    text-align: center;
+}
+.main-text p{
+    font-size: 15px;
+    margin-left: 15px;
+}
+.main-text h2{
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+.services-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+.box{
+    background: var(--bg-color);
+    padding: 35px 45px;
+    border-radius: 8px;
+    transition: all .45s ease;
+}
+.s-icons i{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.box h3{
+    font-size: 24px;
+    font-weight: 600;
+}
+.box p{
+    color: var(--second-color);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+.read{
+    display: inline-block;
+    padding: 8px 18px;
+    background: #333333;
+    color: var(--second-color);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all .45s ease;
+}
+.read:hover{
+    letter-spacing: 1px;
+    background: var(--main-color);
+    color: var(--text-color);
+}
+.box:hover{
+    transform: translateY(-15px);
+    cursor: pointer;
+}
+.portfolio-content{
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;  
+}
+.row{
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.row img{
+    width: 50%;
+    border-radius: 8px;
+    display: block;
+    transition: 0.5s; 
+}
+.layer{
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.1),#ff004f);
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    
+}
+.layer h5{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.services-content:hover{
+    transform: translateY(-15px);
+    cursor: pointer;
+}
+.contact{
+  background: var(--second-bg-color); 
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2.5rem; 
+}
+.contact-text p{
+    color: var(--second-color);
+    font-size: var(--p-font);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+.list{
+    margin-bottom: 2.8rem;
+}
+.list li{
+    margin-bottom: 12px;
+}
+
+.list li a{
+    display: block;
+    color: var(--second-color);
+    font-size: 14px;
+    transition: all .45s ease;
+}
+.list li a:hover{
+    color: var(--text-color);
+    transform: translateX(5px);
+}
+.contact-icons i{
+    height: 45px;
+    width: 45px;
+    background: var(--main-color);
+    color: var(--text-color);
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 15px;
+    transition: all .45s ease;
+}
+.contact-icons i:hover{
+    background: var(--text-color);
+    color: var(--main-color);
+}
+.contact-form form{
+    position: relative;
+}
+.contact-form form input,form textarea{
+    width: 102%;
+    height: 35px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    font-size: 10px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+.contact-form textarea{
+    resize: none;
+    height: 240px;
+}
+.contact-form .submit{
+    display: inline-block;
+    font-size: 16px;
+    background: var(--main-color);
+    color: var(--text-color);
+    width: 160px;
+    transition: all .45s ease;
+}
+.contact-form .submit:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.end{
+    padding: 20px 15%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    background: var(--bg-color);
+}
+.last-text p{
+    color: var(--second-color);
+    font-size: 15px;
+}
+.top i{
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-color);
+    background: var(--main-color);
+}
+
+@media (max-width: 1480px){
+    header{
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+    header .sticky{
+        background: var(--bg-color);
+        border-bottom: 1px solid #ffffff1a;
+        padding: 12px 15%;
+    }
+    section{
+        padding: 110px 3% 60px;
+    }
+    .end{
+        padding: 15px 3%;
+    }
+}
+@media (max-width: 1000px){
+    :root{
+    --big-font:4rem;
+    --h2-font:2rem;
+    --p-font:1rem;
+    transition: .1s;
+    }
+    .home-text h3{
+        font-size: 2.5rem;
+    }
+    .home{
+        height: 127vh;
+        width: 300;
+    }
+}
+
+
+
+@media (max-width: 920px){
+    .about{
+        grid-template-columns: 1fr;
+    }
+    .about-img{
+        text-align: center;
+        order: 2;
+    }
+    .about-img img{
+        width: 90%;
+        height: auto;
+        max-width: 100%;
+    }
+    .contact{
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 740px){
+    #menu-icon{
+        display: block;
+    }
+    .navlists{
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: left;
+        transition: all .45s ease ;
+    }
+    .navlists a{
+        display: block;
+        margin: 17px;
+        font-size: 20px;
+        transition: all .45s ease;
+        color: var(--text-color);
+    }
+    .navlists a:hover{
+        color: var(--main-color);
+    }
+    .navlists a.active{
+        color: var(--text-color);
+    }
+    .navlists.open{
+        top: 100%;
+    }
+    @media(max-width: 400){
+        
+    .home {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: var(--p-font);
+    }
+    }
+}
+    </style>
+</head>
+<body>
+    <!--header section-->
+     <header>
+        <a href="#" class="logo">Web<span>.Dev</span></a>
+        <ul class="navlists">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Course</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+        <div class="bx bx-menu" id="menu-icon">
+
+        </div>
+     </header>
+     <!--home section-->
+     <section class="home" id="home">
+        <div class="home-img">
+            <img src="trendy-young-woman-jumping-pink-background-full-length-view-carefree-female-model-denim-outfit-removebg-preview.png" alt="">
+        </div>
+       <div class="home-text">
+         <div class="slide">
+            <div>
+           <span class="one">Hello</span>
+         </div>
+         
+         <h1>Web<span>.Dev</span></h1> 
+         <h3>Web/Gaming <span>company.</span></h3>
+         <p>website company with over 2+ years experience that inspire our customer to come back  and be more excited</p>
+        <div class="button">
+            <a href="#form" class="btn">Say Hi!</a>
+            <a href="https://www.youtube.com/" target="_blank" class="btn2"><span><box-icon name='play'></box-icon>
+            </span><box-icon name='youtube' type='logo' ></box-icon><i class='bx bxl-youtube' ></i></a>
+        </div>
+         </div>
+       </div>
+     </section>
+
+    
+
+     <!--about section-->
+     <section class="about" id="about">
+       <div class="about-img">
+       <img src="home-office-ideal-setup-angle-100843210-large.webp" alt="">
+       </div>
+
+       <div class="about-text">
+           <h2>About <span>Us</span></h2>
+           <h4>Web<span>.Dev</span></h4>
+           <p>web.Dev is a standard company which help's beginner to get to a pro standard,Web.Dev
+            was created on 7th of march 2023 with the help of different directors ,this website was created for begineer to become
+            a professional, we come down to their level standard to make our teaching impactful.
+           </p>
+      <a href="#" class="btn">More About</a>
+       </div>
+     </section>
+      <!-- services section-->
+      <section class="services" id="services" >
+        <div class="main-text">
+          <h2><span>Our </span>Course</h2>
+
+        </div>
+        <div class="services-content">
+          <div class="box">
+          <div class="s-icons">
+            <box-icon name='mobile-alt'></box-icon>
+            <i class='bx bx-mobile-alt'></i>
+          </div>
+          <h3>Web Design</h3>
+          <p>Web development is the work involved in developing a website for the Internet or an intranet.
+             Web development can range from developing a simple single 
+             static page of plain text to complex web applications, electronic businesses, and social network services</p>
+             <a href="https://en.wikipedia.org/" target="_blank" class="read">Read More</a>
+          </div>
+
+          
+          <div class="box">
+            <div class="s-icons">
+              <box-icon name='game'></box-icon>
+              <i class='bx bx-game'></i>
+            </div>
+            <h3>Gaming</h3>
+            <p>
+              A video game is an electronic game that involves interaction with a user interface or input 
+              device such as a joystick, controller, keyboard or motion sensing device  to generate visual feedback</p>
+               <a href="https://en.wikipedia.org/" target="_blank" class="read">Read More</a>
+            </div>
+
+            
+          <div class="box">
+            <div class="s-icons">
+              <box-icon name='camera-movie'></box-icon>
+              <i class='bx bx-camera-movie'></i>
+            </div>
+            <h3>Animation</h3>
+            <p>Animation is a method by which still figures are manipulated to appear as moving images. In traditional animation, 
+              images are drawn or painted by hand on transparent celluloid sheets to be photographed and exhibited on film</p>
+               <a href="https://en.wikipedia.org/" target="_blank" class="read">Read More</a>
+            </div>
+        </div>
+      </section>
+      
+      <!-- contact section-->
+      <section class="contact" id="contact">
+         <div class="contact-text">
+          <h2>Contact <span>Me</span></h2>
+          <h4>If You Have Any Project In Mind.</h4>
+          <p>I'm A Web/Graphic Designer-creating bold and good interface designs for companies across the globe.</p>
+          <div class="list">
+          <li><a href="#">08094690848</a></li>
+          <li><a href="#">nifemi.ire2022@gmail.com</a></li>
+          <li><a href=""> Rate Us </a></li>
+          </div>
+          <div class="contact-icon">
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+            <a href="#"><i class="bx bxl-world"></i></a>
+            <a href="#"><i class="bx bxl-whatsapp"></i></a>
+            <a href="#"><i class="bx bxl-twitter"></i></a>
+          </div>
+          <div class="contact-form" >
+            <form action="" id="form" >
+              <input type="name" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email Address" required>
+              <input type="number" placeholder="Mobile Number" required>
+              <textarea name="" id="" cols="25" rows="7" placeholder="How Can We Help You" required></textarea>
+              <input type="submit" value="Send Message" class="submit">
+            </form>
+          </div>
+
+         </div>
+      </section>
+      
+      <!-- end section-->
+        <section class="end">
+          <div class="last-text">
+            <p>Copyright &#169 2023 by Web.Dev All Right Reserved</p>
+          </div>
+          <div class="top">
+            <a href="#home"><i class="bx bx-up-arrow--alt"></i></a>
+          </div>
+        </section>
+        <script>
+            const header =document.querySelector("header");
+  window.addEventListener ("scroll",function() {
+      header.classList.toggle ("sticky",window.scrollY > 100);
+  });
+  
+  let menu =document.querySelector('#menu-icon');
+  let navlists =document.querySelector('.navlists');
+  
+  menu.onclick = () => {
+      menu.classList.toggle('bx-x');
+     navlists.classList.toggle('open');
+  };
+  
+  menu.onscroll = () => {
+      menu.classList.remove('bx-x');
+     navlists.classList.remove('close');
+  };
+          </script>
+</body>
+</html>
